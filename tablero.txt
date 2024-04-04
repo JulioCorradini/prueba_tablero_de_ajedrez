@@ -2,11 +2,21 @@ Te desafiamos a desentrañar un misterio: imagina a un chico disfrutando mientra
 
 Por favor incluí y argumenta el proceso de pensamiento para determinar la solución. Si también tenés código que hayas desarrollado, incluilo
 
-Fórmula: 
+Fórmula 1: 
     x = "N° de filas o columnas"
     r= "N° de casilleros rojos"
 
     Función:
     x2/2 +- x/2 = r   Siempre que x pertenezca 2x ("N° pares") y que r > (∑ i=1 x/2 i) + x/2 <=> "Sí se puede"
     x2/2 +- x/2 =/= r Siempre que x pertenezca 2x ("N° pares") y que r > (∑ i=1 x/2 i) + x/2 <=> "No se puede"
+
+
+Fórmula 2: 
+    x = "N° de filas o columnas"
+    r= "N° de casilleros rojos"
+    
+    Se puede siempre que: 
+    x pertenezca 2x ("N° pares")
+    para K perteneciente a los Naturales con 1 <= K <= x
+    r = ∑ n=1 K n => Que es lo mismo decir que r = K(K + 1) / 2 {ESTA ES LA FUNCIÓN CUADRÁTICA}
 ​

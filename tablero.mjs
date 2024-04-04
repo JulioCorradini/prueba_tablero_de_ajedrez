@@ -1,18 +1,28 @@
 // importo 'Chalk' para poder colorear los casilleros.
-const chalk = require('chalk');
+/*const chalk = require('chalk');*/
+import chalk from 'chalk';
 
 var columnas = 8;
 var filas = 8;
-var cantDeRojos = 14;
+var cantDeRojos = 36;
 
 // Imprimo la cantidad de casilleros Rojos.
 console.log("Cantidad de casilleros Rojos " + cantDeRojos);
 
 // Creando la función que verifica si el número de celdas Rojas cumple con la condición matemática para que se cumpla el objetivo del problema.
 function verificarMetematicamente (columnas, cantDeRojos) {
+
+    // Clacula el valor del límite inferior.
+    let limite = 0;
+    for (let i = 1; i <= columnas / 2; i++) {
+        limite += i;
+    };
+    limite += columnas / 2;
+
     // Verifica que la cantidad de columnas y filas sean pares.
     if (columnas % 2 === 0) {
-        if (cantDeRojos > ) {
+        // Verifica que la variable cantDeRojos supere el límite inferior.
+        if (cantDeRojos > limite) {
 
                 if (cantDeRojos === (columnas ** 2 / 2) + columnas / 2 || cantDeRojos === (columnas ** 2 / 2) - columnas / 2) {
                     console.log("La cantidad de casilleros Rojos sí verifica la condición matemática");
@@ -20,10 +30,10 @@ function verificarMetematicamente (columnas, cantDeRojos) {
                     console.log("La cantidad de casilleros Rojos no verifica la condición matemática");
                 }
             } else {
-                console.log("La cantidad de casilleros Rojos sí verífica la condición matemática");
+                console.log("La cantidad de casilleros Rojos sí verífica la condición matemática, porque es menor al límte inferior.");
             };
         } else {
-            console.log("La cantidad de casilleros Rojos no verifica la condición matemática");
+            console.log("La cantidad de columnas y filas debe ser la misma y deben ser pares.");
         };
 };
 
@@ -40,10 +50,10 @@ function crearTablero (columnas, filas, cantDeRojos) {
     var tableroControl = [];
 
     // Rellenando el tablero de control.
-    for (c = 0; c < columnas; c++){
+    for (let c = 0; c < columnas; c++){
         var columna = [];
         
-        for (f = 0; f < filas; f++){
+        for (let f = 0; f < filas; f++){
             columna.push(f);
         }
 
@@ -52,18 +62,18 @@ function crearTablero (columnas, filas, cantDeRojos) {
 
     // Poblando los espacios del tablero den control con números
     var contador = 0;
-    for (c = 0; c < tableroControl.length; c++){
+    for (let c = 0; c < tableroControl.length; c++){
 
-        for (f = 0; f < tableroControl.length; f++){
+        for (let f = 0; f < tableroControl.length; f++){
             contador++;
             tableroControl[c][f] = contador;
         }
     }
 
     // Rellenando el tablero de control
-    for (c = 0; c < tableroControl.length; c++){
+    for (let c = 0; c < tableroControl.length; c++){
 
-        for (f = 0; f < tableroControl.length; f++){
+        for (let f = 0; f < tableroControl.length; f++){
             if(f <= c) {
                 if(cantDeRojos > 0){
                     tableroControl[c][f] = "R";
@@ -80,15 +90,15 @@ function crearTablero (columnas, filas, cantDeRojos) {
 };
 
 // Llamando a la función que crea el tablero de control y lo puebla con casilleros rojos.
-tableroControl = crearTablero(columnas, filas, cantDeRojos);
+let tableroControl = crearTablero(columnas, filas, cantDeRojos);
 
 // Imprimiendo el tablero de control
 console.log("-----------TABLERO DE CONTROL--------");
-for (c = 0; c < tableroControl.length; c++){
+for (let c = 0; c < tableroControl.length; c++){
     
     var filaActual = " ";
 
-    for (f = 0; f < tableroControl.length; f++){
+    for (let f = 0; f < tableroControl.length; f++){
         if (tableroControl[c][f] == "R") {
             filaActual += chalk.red("[ " + tableroControl[c][f] + " ]");
         } else if (tableroControl[c][f] == "A") {
@@ -113,10 +123,10 @@ function probarResultadoDelTablero (tableroControl){
     let hayColumnasConRojosRepetidos = false;
 
     // Contando la cantidad de casilleros Rojos en el tablero de control.
-    for (c = 0; c < tableroControl.length; c++){
+    for (let c = 0; c < tableroControl.length; c++){
         var rojoPorColumna = 0;
 
-        for(f = 0; f < tableroControl.length; f++){
+        for(let f = 0; f < tableroControl.length; f++){
             if(tableroControl[c][f] === "R"){
                 rojoPorColumna ++;
             }
