@@ -2,15 +2,15 @@
 /*const chalk = require('chalk');*/
 import chalk from 'chalk';
 
-var columnas = 8;
-var filas = 8;
+var columnas = 10;
+var filas = 10;
 var cantDeRojos = 36;
 
 // Imprimo la cantidad de casilleros Rojos.
 console.log("Cantidad de casilleros Rojos " + cantDeRojos);
 
 // Creando la función que verifica si el número de celdas Rojas cumple con la condición matemática para que se cumpla el objetivo del problema.
-function verificarMetematicamente (columnas, cantDeRojos) {
+/*function verificarMetematicamente (columnas, cantDeRojos) {
 
     // Clacula el valor del límite inferior.
     let limite = 0;
@@ -35,7 +35,34 @@ function verificarMetematicamente (columnas, cantDeRojos) {
         } else {
             console.log("La cantidad de columnas y filas debe ser la misma y deben ser pares.");
         };
-};
+};*/
+function verificarMetematicamente (columnas, cantDeRojos) {
+
+    // Variable que representa si la condición matemática se cumple.
+    let condicionMat = false;
+
+    // Verifica que la cantidad de celdas rojas cumpla con la condición matemática.
+    for (let i = 1; i <= columnas; i++) {
+        if(cantDeRojos === (i * (i + 1)) / 2) {
+            condicionMat = true;
+            break;
+        } else {
+            condicionMat = false;
+        }
+    };
+
+    // Verifica que la cantidad de columnas y filas sean pares.
+    if (columnas % 2 === 0) {
+        // Verifica si la variable condicioinMat es verdadera o no y muestra el mensaje correspondiente.
+        if (condicionMat) {
+            console.log("La cantidad de celdas rojas veifica la condición matemática.");
+        } else {
+            console.log("La cantidad de celdas rojas no verifica la condición matemática.");
+        }
+    } else {
+        console.log("La cantidad de columnas y filas debe ser la misma y deben ser pares.");
+    };
+}
 
 // Llamo a la función que veifica la condición matemática.
 verificarMetematicamente(columnas, cantDeRojos);
@@ -136,7 +163,7 @@ function probarResultadoDelTablero (tableroControl){
         cantDeRojosControlMap.set("Columna " + c, rojoPorColumna);
 
         // Veirficando si hay más de una columna con la misma cantidad de casilleros rojos.
-        if (cantDeRojosControl.has(rojoPorColumna)) {
+        if (/*!rojoPorColumna === 0 &&*/ cantDeRojosControl.has(rojoPorColumna)) {
             hayColumnasConRojosRepetidos = true;
         } else {
             cantDeRojosControl.add(rojoPorColumna);
@@ -148,9 +175,9 @@ function probarResultadoDelTablero (tableroControl){
 
     // Determinando el contenido del mensaje de resultado.
     if (hayColumnasConRojosRepetidos) {
-        mensajeDeResultado = "Hay columnas con la misma cantidad de celdas Rojas";
+        mensajeDeResultado = "Hay columnas o filas con la misma cantidad de celdas Rojas";
     } else {
-        mensajeDeResultado = "Todas las columnas tienen distinta cantidad de celdas Rojas";
+        mensajeDeResultado = "Todas las columnas y filas tienen distinta cantidad de celdas Rojas";
     };
     
     console.log(cantDeRojosControlMap);
