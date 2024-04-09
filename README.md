@@ -8,13 +8,17 @@
 
  Condición matemática:
    x = "N° de filas o columnas"
+   
    r = "N° de casilleros rojos"
+   
    Para K perteneciente a los N° Naturales con 1 <= K <= x
+   
    Para x pertenezca a los N° Pares
+   
    Se puede siempre que: 
      r = (K * (K + 1)) / 2
 
- El código se encuentra escrito en node.js. Para ejecutarlo hay que utilizar la instrucción en consola "node.table.mjs". 
+ El código se encuentra escrito en node.js. Para ejecutarlo hay que utilizar la instrucción en consola "node.tablero.mjs". 
  Al ejecutarlo, el programa pide que se ingresen el numero de filas y columnas y la cantidad de celdas rojas.
  Luego imprime un mensaje que verifica si la cantidad de casilleros rojos cumple la condición matemática anterior o no.
  Luego se pinta por consola el cuadro para visualizarlo y se imprime un mapa con el número de columna (En rigor, tambien representa a las filas) y la cantidad de casilleros rojos que tiene.
