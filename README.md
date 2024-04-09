@@ -19,10 +19,9 @@
    Se puede siempre que: 
      r = (K * (K + 1)) / 2
 
- El código se encuentra escrito en node.js. Para ejecutarlo hay que utilizar la instrucción en consola "node.tablero.mjs". 
- Al ejecutarlo, el programa pide que se ingresen el numero de filas y columnas y la cantidad de celdas rojas.
- Luego imprime un mensaje que verifica si la cantidad de casilleros rojos cumple la condición matemática anterior o no.
- Luego se pinta por consola el cuadro para visualizarlo y se imprime un mapa con el número de columna (En rigor, tambien representa a las filas) y la cantidad de casilleros rojos que tiene.
+ El código se encuentra escrito en node.js. Primero hay que actualizar las variables "columnasYFilas" y "cantDeRojos" con los valores que se desean probar según el tamaño del cuadro y la cantidad de casilleros rojos que hay disponibles, luego se puede ejecutar el programa con la instrucción "node.tablero.mjs".
+ Por consola se imprimirá un mensaje que verifica si la cantidad de casilleros rojos cumple la condición matemática anterior o no.
+ Luego se pintará el cuadro para poder visualizarlo y se imprimirá un mapa con el número de cada columna (En rigor, tambien representa a las filas) y la cantidad de casilleros rojos que tiene. Esto último sirve para identificar si hay columnas con igual cantidad de casilleros rojos y, de ser así, cuales son.
 
  Este programa sirve para demostrar que en un cuadrado de 8 X 8 no se pueden ordenar 32 casilleros rojos de forma que no se repita su número en 2 o más filas o columnas.
  En rigor para un cuadrado de 8 X 8, y siguiendo la fórmula matemática anterior, solo se pueden organizar una canitdad de casilleros rojos que sea igual a alguno de los números de la siguiente serie:
