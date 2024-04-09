@@ -12,7 +12,7 @@
    
    r = "N° de casilleros rojos"
    
-   Para K perteneciente a los N° Naturales con 1 <= K <= x
+   Para K perteneciente a los N° Naturales, con 1 <= K <= x
    
    Para x perteneciente a los N° Pares
    
