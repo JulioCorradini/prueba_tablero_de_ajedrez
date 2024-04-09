@@ -7,6 +7,7 @@
    ¿Sería posible colorear el tablero de ajedrez siguiendo estos parámetros? ¿Qué ocurriría si, en lugar de un tablero de ajedrez estándar de 8x8, poseyera uno colosal de 1000x1000?"
 
  Condición matemática:
+   
    x = "N° de filas o columnas"
    
    r = "N° de casilleros rojos"
