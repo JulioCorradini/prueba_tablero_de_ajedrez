@@ -140,7 +140,7 @@ for (let c = 0; c < tableroControl.length; c++){
 
 //-------------------------------------------------------------------------------------------------------------//
 //Función para comprobar al veracidad de la condición matemática en el tablero de control.
-function probarResultadoDelTablero (tableroControl){
+/*function probarResultadoDelTablero (tableroControl){
     // Creo un mapa que contenga el número de columna y su respectiva cantidad de casilleros rojos
     let cantDeRojosControlMap = new Map ();
     // Creo un Set en el que voy agregando la cantidad de casilleros Rojos por cada columna, para verificar si en alguno de ellos se reptire el núemro.
@@ -163,7 +163,7 @@ function probarResultadoDelTablero (tableroControl){
         cantDeRojosControlMap.set("Columna " + c, rojoPorColumna);
 
         // Veirficando si hay más de una columna con la misma cantidad de casilleros rojos.
-        if (/*!rojoPorColumna === 0 &&*/ cantDeRojosControl.has(rojoPorColumna)) {
+        if (!rojoPorColumna === 0 && cantDeRojosControl.has(rojoPorColumna)) {
             hayColumnasConRojosRepetidos = true;
         } else {
             cantDeRojosControl.add(rojoPorColumna);
@@ -182,7 +182,37 @@ function probarResultadoDelTablero (tableroControl){
     
     console.log(cantDeRojosControlMap);
     console.log(mensajeDeResultado);
-};
+};*/
+function probarResultadoDelTablero (tableroControl){
+    let cantDeRojosControlMap = new Map ();
+    let cantDeRojosControl = new Set();
+    let hayColumnasConRojosRepetidos = false;
+
+    for (let c = 0; c < tableroControl.length; c++){
+        var rojoPorColumna = 0;
+
+        for(let f = 0; f < tableroControl[c].length; f++){ // Asegúrate de usar tableroControl[c] para la longitud correcta
+            if(tableroControl[c][f] === "R"){
+                rojoPorColumna++;
+            }
+        }
+
+        // Poblamos el mapa con todas las columnas, incluyendo las que tienen 0 celdas rojas
+        cantDeRojosControlMap.set("Columna " + (c + 1), rojoPorColumna); // Cambié c a c + 1 para que el conteo de columnas sea más humano
+
+        // Verificamos si hay más de una columna con la misma cantidad de celdas rojas, ignorando las columnas con 0 celdas rojas
+        if (rojoPorColumna > 0 && cantDeRojosControl.has(rojoPorColumna)) {
+            hayColumnasConRojosRepetidos = true;
+        } else {
+            cantDeRojosControl.add(rojoPorColumna);
+        }
+    }
+
+    let mensajeDeResultado = hayColumnasConRojosRepetidos ? "Hay columnas o filas con la misma cantidad de celdas Rojas" : "Todas las columnas y filas tienen distinta cantidad de celdas Rojas";
+
+    console.log(Array.from(cantDeRojosControlMap)); // Modificado para mostrar el mapa de forma más legible
+    console.log(mensajeDeResultado);
+}
 
 // Llamando a la función que prueba el resultado del tablero de control.
 probarResultadoDelTablero(tableroControl);
