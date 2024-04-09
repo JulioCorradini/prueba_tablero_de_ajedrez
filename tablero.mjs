@@ -3,7 +3,7 @@
 import chalk from 'chalk';
 
 var columnasYFilas = 8;
-var cantDeRojos = 28;
+var cantDeRojos = 32;
 
 // Imprimo la cantidad de casilleros Rojos.
 console.log("Cantidad de casilleros Rojos " + cantDeRojos);
